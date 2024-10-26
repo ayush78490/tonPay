@@ -1,8 +1,10 @@
 'use client'
+import React from 'react'
 
 import { useTonConnectUI} from '@tonconnect/ui-react'
 import { TonConnectUI } from '@tonconnect/ui-react'
 import { Children, useCallback, useEffect, useState } from 'react'
+import { Address } from '@ton/core'
 
 function App() {
   const [tonConnectUI] = useTonConnectUI();
@@ -70,8 +72,7 @@ function App() {
   }
 
   return (
-    <>
-    <main className='flex main-h-screen flex-coloumn item-center justify-center'>
+    <main className='flex min-h-screen flex-col items-center justify-center'>
       <h1 className='text-4xl font-bold mb-8'>Ton Connect Demo</h1>
       {tonWalletAddress? (
         <div className='flex flex-col item-center'>
@@ -86,6 +87,7 @@ function App() {
         </div>
       ):(
         <button
+        onClick={handleWalletAction}
         className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
         >
           Connect TON wallet
@@ -93,7 +95,6 @@ function App() {
       )}
 
     </main>
-  </> 
   )
 }
 
