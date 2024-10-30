@@ -6,6 +6,8 @@ import { TonConnectUI } from '@tonconnect/ui-react'
 import { Children, useCallback, useEffect, useState } from 'react'
 import { Address } from '@ton/core'
 
+import  LandingPage  from './Components/landingPage';
+
 function App() {
   const [tonConnectUI] = useTonConnectUI();
   const [tonWalletAddress, setTonWalletAddress] = useState(null);
@@ -13,7 +15,7 @@ function App() {
   
   const handleWalletConnection = useCallback((address) => {
     setTonWalletAddress(address);
-    console.log("wallet connected successfully");
+    console.log("wallet connected successfully", address);
     setIsLoading(false);
   }, []);
 
@@ -83,6 +85,8 @@ function App() {
           >
             Disconnect Wallet
           </button>
+
+          <LandingPage/>
 
         </div>
       ):(
